@@ -1,0 +1,6 @@
+#ex_04-5b
+#Learning Perl Appendix A, Exercise 4.5 alternate (with list)
+foreach $number (0..32) {
+    $square = $number * $number;
+    printf "%5g %8g\n", $number, $square;
+}

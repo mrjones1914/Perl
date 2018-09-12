@@ -1,0 +1,15 @@
+#ex_07-5
+#Learning Perl Appendix A, Exercise 7.5
+while (<STDIN>) {
+    chomp;
+    ($user, $gcos) = (split /:/)[0,4];
+    ($real) = split /,/, $gcos;
+    ($first) = split /\s+/, $real;
+    $names{$first} .= " $user";
+}
+foreach (keys %names) {
+    $this = $names{$_};
+    if ($this =~ /. /) {
+        print "$_ is used by:$this\n";
+    }
+}

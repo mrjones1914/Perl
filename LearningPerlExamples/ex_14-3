@@ -1,0 +1,18 @@
+#ex_14-3
+#Learning Perl Appendix A, Exercise 14.3
+open(PW,"/etc/passwd");
+while (<PW>) {
+    chomp;
+    ($user,$gcos) = (split /:/)[0,4];
+    ($real) = split(/,/, $gcos);
+    $real{$user} = $real;
+}
+close(PW);
+open(LPR,"|lpr") || die "cannot open LPR pipe";
+open(WHO,"who|") || die "cannot open who pipe";
+while (<WHO>) {
+# or replace previous two lines with: foreach $_ (`who`) {
+    ($login, $rest) = /^(\S+)\s+(.*)/;
+    $login = $real{$login} if $real{$login};
+    printf LPR "%-30s %s\n",$login,$rest;
+}

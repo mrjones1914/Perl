@@ -1,0 +1,3 @@
+#ex_06-1
+#Learning Perl Appendix A, Exercise 6.1
+print reverse <>;

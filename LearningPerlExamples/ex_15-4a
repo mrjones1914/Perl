@@ -1,0 +1,7 @@
+#ex_15-4a
+#Learning Perl Appendix A, Exercise 15.4
+while (<>) {
+    substr($_,0,1) =~ tr/a-z/A-Z/;
+    substr($_,1) =~ tr/A-Z/a-z/;
+    print;
+}

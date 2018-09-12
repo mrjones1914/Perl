@@ -1,0 +1,3 @@
+#ex_07-1c
+#Learning Perl Appendix A, Exercise 7.1c
+/($whatever){3}/

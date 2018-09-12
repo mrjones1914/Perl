@@ -1,0 +1,5 @@
+#ex_13-5
+#Learning Perl Appendix A, Exercise 13.5
+foreach $f (<*>) {
+    print "$f -> $where\n" if defined($where = readlink($f));
+}

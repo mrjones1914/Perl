@@ -1,0 +1,7 @@
+#ex_11-2
+#Learning Perl Appendix A, Exercise 11.2
+# append to program from the first problem...
+format STDOUT_TOP =
+Username User ID Real Name
+======== ======= =========
+.

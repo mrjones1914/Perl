@@ -1,0 +1,3 @@
+#ex_07-1e
+#Learning Perl Appendix A, Exercise 7.1e
+/(^|\s)(\S+)(\s+\2)+(\s|$)/

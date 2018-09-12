@@ -1,0 +1,16 @@
+#ex_14-2
+#Learning Perl Appendix A, Exercise 14.2
+open(PW,"/etc/passwd");
+while (<PW>) {
+    chomp;
+    ($user,$gcos) = (split /:/)[0,4];
+    ($real) = split(/,/, $gcos);
+    $real{$user} = $real;
+}
+close(PW);
+open(WHO,"who|") || die "cannot open who pipe";
+while (<WHO>) {
+    ($login, $rest) = /^(\S+)\s+(.*)/;
+    $login = $real{$login} if $real{$login};
+    printf "%-30s %s\n",$login,$rest;
+}

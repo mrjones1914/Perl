@@ -1,0 +1,4 @@
+#ex_03-1b
+#Learning Perl Appendix A, Exercise 3.1 alternate
+print "Enter the list of strings:\n";
+print reverse <STDIN>;

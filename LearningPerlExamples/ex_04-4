@@ -1,0 +1,7 @@
+#ex_04-4
+#Learning Perl Appendix A, Exercise 4.4
+print "Enter some strings, end with ^D:\n";
+@strings = <STDIN>;
+while (@strings) {
+    print pop @strings;
+}

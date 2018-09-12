@@ -1,0 +1,16 @@
+#ex_13-4
+#Learning Perl Appendix A, Exercise 13.4
+if ($ARGV[0] eq "-s") { # wants a symlink
+    $symlink++; # remember that
+    shift(@ARGV); # and toss the -s flag
+}
+($old, $new) = @ARGV; # name them
+if (-d $new) { # new name is a directory, need to patch it up
+    ($basename = $old) =~ s#.*/##s; # get basename of $old
+    $new .= "/$basename"; # and append it to new name
+}
+if ($symlink) { # wants a symlink
+    symlink($old,$new);
+} else { # wants a hard link
+    link($old,$new);
+}

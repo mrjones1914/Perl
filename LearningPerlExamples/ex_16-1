@@ -1,0 +1,36 @@
+#ex_16-1
+#Learning Perl Appendix A, Exercise 16.1
+$: = " ";
+while (@pw = getpwent) {
+    ($user, $gid, $gcos) = @pw[0,3,6];
+    ($real) = split /,/, $gcos;
+    $real{$user} = $real;
+    $members{$gid} .= " $user";
+    ($last) = (split /\s+/, $real)[-1];
+    $last{$user} = "\L$last";
+}
+while (@gr = getgrent) {
+    ($gname,$gid,$members) = @gr[0,2,3];
+    $members{$gid} .= " $members";
+    $gname{$gid} = $gname;
+}
+for $gid (sort by_gname keys %gname) {
+    %all = ();
+    for (split(/\s+/, $members{$gid})) {
+        $all{$_}++ if length $_;
+    }
+    @members = ();
+    foreach (sort by_last keys %all) {
+        push(@members, "$real{$_} ($_)");
+    }
+    $memberlist = join(", ", @members);
+    write;
+}
+sub by_gname { $gname{$a} cmp $gname{$b}; }
+sub by_last { ($last{a} cmp $last{$b}) || ($a cmp $b); }
+format STDOUT =
+@<<<<<<<< @<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$gname{$gid}, "($gid)", $memberlist
+~~                  ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$memberlist
+.

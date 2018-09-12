@@ -1,0 +1,7 @@
+#ex_15-2
+#Learning Perl Appendix A, Exercise 15.2
+chomp(@nums = <STDIN>); # note special use of chomp
+@nums = sort { $a <=> $b } @nums;
+foreach (@nums) {
+    printf "%30g\n", $_;
+}

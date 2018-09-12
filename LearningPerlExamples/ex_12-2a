@@ -1,0 +1,12 @@
+#ex_12-2a
+#Learning Perl Appendix A, Exercise 12.2a (using directory handle)
+print "Where to? ";
+chomp($newdir = <STDIN>);
+chdir($newdir) ||
+    die "Cannot chdir to $newdir: $!";
+opendir(DOT,".") ||
+    die "Cannot opendir . (serious dainbramage): $!";
+foreach (sort readdir(DOT)) {
+        print "$_\n";
+    }
+closedir(DOT);

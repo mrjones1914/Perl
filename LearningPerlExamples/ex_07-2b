@@ -1,0 +1,7 @@
+#ex_07-2b
+#Learning Perl Appendix A, Exercise 7.2b
+while (<STDIN>) {
+    if (/a.*e.*i.*o.*u/i) {
+        print;
+    }
+}

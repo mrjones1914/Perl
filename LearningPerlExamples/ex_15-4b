@@ -1,0 +1,5 @@
+#ex_15-4b
+#Learning Perl Appendix A, Exercise 15.4 alternate
+while (<>) {
+    print "\u\L$_";
+}

@@ -1,0 +1,19 @@
+#ex_08-1
+#Learning Perl Appendix A, Exercise 8.1
+sub card {
+    my %card_map;
+    @card_map{1..9} = qw(
+        one two three four five six seven eight nine
+    );
+    my($num) = @_;
+    if ($card_map{$num}) {
+       return $card_map{$num};
+    } else {
+      return $num;
+    }
+}
+# driver routine:
+while (<>) {
+    chomp;
+    print "card of $_ is ", &card($_), "\n";
+}

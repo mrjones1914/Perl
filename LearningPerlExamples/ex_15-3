@@ -1,0 +1,16 @@
+#ex_15-3
+#Learning Perl Appendix A, Exercise 15.3
+open(PW,"/etc/passwd") || die "How did you get logged in?";
+while (<PW>) {
+    chomp;
+    ($user, $gcos) = (split /:/)[0,4];
+    ($real) = split(/,/, $gcos);
+    $real{$user} = $real;
+    ($last) = (split /\s+/, $real)[-1];
+    $last{$user} = "\L$last";
+}
+close(PW);
+for (sort by_last keys %last) {
+    printf "%30s %8s\n", $real{$_}, $_;
+}
+sub by_last { ($last{$a} cmp $last{$b}) || ($a cmp $b) }

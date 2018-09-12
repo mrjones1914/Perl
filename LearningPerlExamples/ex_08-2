@@ -1,0 +1,11 @@
+#ex_08-2
+#Learning Perl Appendix A, Exercise 8.2
+sub card { ...; } # from previous problem
+print "Enter first number: ";
+chomp($first = <STDIN>);
+print "Enter second number: ";
+chomp($second = <STDIN>);
+$message = card($first) . " plus " .
+    card($second) . " equals " .
+    card($first+$second) . ".\n";
+print "\u$message";

@@ -1,0 +1,29 @@
+#!/usr/bin/perl -w
+use strict;
+use LWP 5.000;
+use URI::URL;
+use HTML::LinkExtor;
+
+my($url, $browser, %saw);
+$browser = LWP::UserAgent->new(); # make fake browser
+foreach $url ( @ARGV ) {
+    # fetch the document via fake browser
+    my $webdoc = $browser->request(HTTP::Request->new(GET => $url));
+    next unless $webdoc->is_success;
+    next unless $webdoc->content_type eq 'text/html'; 
+                                                 # can't parse gifs
+
+    my $base = $webdoc->base;
+
+    # now extract all links of type <A ...> and <IMG ...>
+    foreach (HTML::LinkExtor->new->parse($webdoc->content)->eof->
+                                                   links) {
+        my($tag, %links) = @$_;
+        next unless $tag eq "a" or $tag eq "img";
+        my $link;
+        foreach $link (values %links) {
+            $saw{ url($link,$base)->abs->as_string }++;
+        }
+    }
+}
+print join("\n", sort keys %saw), "\n";

@@ -1,0 +1,17 @@
+#ex_17-2
+#Learning Perl Appendix A, Exercise 17.2
+# program 1:
+dbmopen(%WORDS,"words",0644);
+while (<>) {
+    foreach $word (split(/\W+/)) {
+        $WORDS{$word}++;
+    }
+}
+dbmclose(%WORDS);
+
+# program 2:
+dbmopen(%WORDS,"words",undef);
+foreach $word (sort { $WORDS{$b} <=> $WORDS{$a} } keys %WORDS) {
+    print "$word $WORDS{$word}\n";
+}
+dbmclose(%WORDS);

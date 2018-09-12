@@ -1,0 +1,8 @@
+#ex_07-3
+#Learning Perl Appendix A, Exercise 7.3
+while (<STDIN>) {
+    chomp;
+    ($user, $gcos) = (split /:/)[0,4];
+    ($real) = split(/,/, $gcos);
+    print "$user is $real\n";
+}

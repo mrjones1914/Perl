@@ -1,0 +1,3 @@
+#ex_07-1d2
+#Learning Perl Appendix A, Exercise 7.1d alternate
+/(.|\n){5}/

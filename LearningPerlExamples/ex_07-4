@@ -1,0 +1,14 @@
+#ex_07-4
+#Learning Perl Appendix A, Exercise 7.4
+while (<STDIN>) {
+    chomp;
+    ($gcos) = (split /:/)[4];
+    ($real) = split(/,/, $gcos);
+    ($first) = split(/\s+/, $real);
+    $seen{$first}++;
+}
+foreach (keys %seen) {
+    if ($seen{$_} > 1) {
+        print "$_ was seen $seen{$_} times\n";
+    }
+}

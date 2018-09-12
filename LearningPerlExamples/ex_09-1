@@ -1,0 +1,15 @@
+#ex_09-1
+#Learning Perl Appendix A, Exercise 9.1
+sub card {} # from previous exercise
+while () { ## NEW ##
+    print "Enter first number: ";
+    chomp($first = <STDIN>);
+    last if $first eq "end"; ## NEW ##
+    print "Enter second number: ";
+    chomp($second = <STDIN>);
+    last if $second eq "end"; ## NEW ##
+    $message = &card($first) . " plus " .
+        card($second) . " equals " .
+        card($first+$second) . ".\n";
+    print "\u$message";
+} ## NEW ##

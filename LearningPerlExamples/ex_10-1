@@ -1,0 +1,9 @@
+#ex_10-1
+#Learning Perl Appendix A, Exercise 10.1
+print "What file? ";
+chomp($filename = <STDIN>);
+open(THATFILE, "$filename") ||
+    die "cannot open $filename: $!";
+while (<THATFILE>) {
+    print "$filename: $_"; # presume $_ ends in \n
+}

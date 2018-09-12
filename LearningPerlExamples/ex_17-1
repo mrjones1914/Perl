@@ -1,0 +1,8 @@
+#ex_17-1
+#Learning Perl Appendix A, Exercise 17.1
+dbmopen(%ALIAS, "/etc/aliases", undef) ||
+    die "No aliases!: $!";
+while (($key,$value) = each(%ALIAS)) {
+    chop($key,$value);
+    print "$key $value\n";
+}

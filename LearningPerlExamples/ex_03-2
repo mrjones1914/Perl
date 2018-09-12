@@ -1,0 +1,5 @@
+#ex_03-2
+#Learning Perl Appendix A, Exercise 3.2
+print "Enter the line number: "; chomp($a = <STDIN>);
+print "Enter the lines, end with ^D:\n"; @b = <STDIN>;
+print "Answer: $b[$a-1]";

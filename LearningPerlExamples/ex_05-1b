@@ -1,0 +1,5 @@
+#ex_05-1b
+#Learning Perl Appendix A, Exercise 5.1 alternate
+$map{'red'} = 'apple';
+$map{'green'} = 'leaves';
+$map{'blue'} = 'ocean';

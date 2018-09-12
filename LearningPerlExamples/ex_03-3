@@ -1,0 +1,5 @@
+#ex_03-3
+#Learning Perl Appendix A, Exercise 3.3
+srand;
+print "List of strings: "; @b = <STDIN>;
+print "Answer: $b[rand(@b)]";

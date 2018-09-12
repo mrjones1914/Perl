@@ -1,0 +1,3 @@
+#ex_13-1
+#Learning Perl Appendix A, Exercise 13.1
+unlink @ARGV;

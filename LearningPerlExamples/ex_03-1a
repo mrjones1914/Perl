@@ -1,0 +1,6 @@
+#ex_03-1a
+#Learning Perl Appendix A, Exercise 3.1
+print "Enter the list of strings:\n";
+@list = <STDIN>;
+@reverselist = reverse @list;
+print @reverselist;

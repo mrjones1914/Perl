@@ -1,0 +1,8 @@
+#ex_12-2b
+#Learning Perl Appendix A, Exercise 12.2b (using globbing)
+print "Where to? ";
+chomp($newdir = <STDIN>);
+chdir($newdir) || die "Cannot chdir to $newdir: $!";
+foreach (sort <* .*>) {
+    print "$_\n";
+}

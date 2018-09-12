@@ -1,0 +1,15 @@
+#ex_18-1
+#Learning Perl Appendix A, Exercise 18.1
+for (;;) {
+    ($user,$home) = (getpwent)[0,7];
+    last unless $user;
+    next unless open(N,"$home/.newsrc");
+    next unless -M N < 30; ## added value :-)
+    while (<N>) {
+        if (/^comp\.lang\.perl\.announce:/) {
+            print "$user is a good person, ",
+            "and reads comp.lang.perl.announce!\n");
+            last;
+        }
+    }
+}

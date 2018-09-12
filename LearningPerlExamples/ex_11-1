@@ -1,0 +1,12 @@
+#ex_11-1
+#Learning Perl Appendix A, Exercise 11.1
+open(PW,"/etc/passwd") || die "How did you get logged in?";
+while (<PW>) {
+    ($user,$uid,$gcos) = (split /:/)[0,2,4];
+    ($real) = split /,/,$gcos;
+    write;
+}
+format STDOUT =
+@<<<<<<< @>>>>>> @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$user, $uid, $real
+.

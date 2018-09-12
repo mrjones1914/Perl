@@ -1,0 +1,5 @@
+#ex_06-2
+#Learning Perl Appendix A, Exercise 6.2
+@ARGV = reverse @ARGV;
+print reverse <>;
+

@@ -1,0 +1,7 @@
+#ex_14-1
+#Learning Perl Appendix A, Exercise 14.1
+if (`date` =~ /^S/) {
+    print "Go play!\n";
+} else {
+    print "Get to work!\n";
+}
